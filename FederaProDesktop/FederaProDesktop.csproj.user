@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="CompeticionesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CrearCompeticion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="DetalleCompeticion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="DetalleEquipoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="DetalleJugadoresControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="DetallesCompeticionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="EquiposControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="FormEstadisticasPartido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="InicioControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="JugadoresControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RegistroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SeleccionDeporteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

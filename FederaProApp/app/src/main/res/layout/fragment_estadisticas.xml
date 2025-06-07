@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tituloPuntos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Top jugadores por puntos"
+            android:textSize="16sp"
+            android:textColor="#000"
+            android:gravity="center"
+            android:paddingBottom="4dp" />
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/pieChartPuntos"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_margin="8dp" />
+
+        <TextView
+            android:id="@+id/tituloRebotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Top jugadores por rebotes"
+            android:textSize="16sp"
+            android:textColor="#000"
+            android:gravity="center"
+            android:paddingBottom="4dp" />
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/pieChartRebotes"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_margin="8dp" />
+
+        <TextView
+            android:id="@+id/tituloAsistencias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Top jugadores por asistencias"
+            android:textSize="16sp"
+            android:textColor="#000"
+            android:gravity="center"
+            android:paddingBottom="4dp" />
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/pieChartAsistencias"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_margin="8dp" />
+
+    </LinearLayout>
+    </ScrollView>
+</layout>

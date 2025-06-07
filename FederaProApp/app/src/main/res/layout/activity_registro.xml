@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/logoImage"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginBottom="32dp"
+                android:src="@drawable/ic_logo"
+                android:contentDescription="@string/app_name" />
+
+            <EditText
+                android:id="@+id/etNombreCompleto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre completo"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/etCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Correo electrónico"
+                android:inputType="textEmailAddress"
+                android:layout_marginTop="12dp" />
+
+            <EditText
+                android:id="@+id/etNuevoUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre de usuario"
+                android:layout_marginTop="12dp" />
+
+            <EditText
+                android:id="@+id/etNuevaContrasena"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                android:layout_marginTop="12dp" />
+
+            <Button
+                android:id="@+id/btnRegistrar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Registrarse"
+                android:layout_marginTop="24dp" />
+        </LinearLayout>
+    </ScrollView>
+</layout>
