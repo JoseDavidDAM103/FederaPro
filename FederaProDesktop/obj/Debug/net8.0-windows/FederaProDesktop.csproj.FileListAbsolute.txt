@@ -39,7 +39,6 @@ C:\Users\jdcg1\Desktop\FederaProDesktop\bin\Debug\net8.0-windows\runtimes\win-x6
 C:\Users\jdcg1\Desktop\FederaProDesktop\bin\Debug\net8.0-windows\runtimes\win-x86\native\libSkiaSharp.dll
 C:\Users\jdcg1\Desktop\FederaProDesktop\obj\Debug\net8.0-windows\FederaProDesktop.csproj.AssemblyReference.cache
 C:\Users\jdcg1\Desktop\FederaProDesktop\obj\Debug\net8.0-windows\FederaProDesktop.csproj.CopyComplete
-C:\Users\jdcg1\Desktop\FederaProDesktop\obj\Debug\net8.0-windows\FederaProDesktop.DetallesCompeticionControl.resources
 C:\Users\jdcg1\Desktop\FederaProDesktop\obj\Debug\net8.0-windows\FederaProDesktop.DetalleEquipoControl.resources
 C:\Users\jdcg1\Desktop\FederaProDesktop\obj\Debug\net8.0-windows\FederaProDesktop.DetalleJugadorControl.resources
 C:\Users\jdcg1\Desktop\FederaProDesktop\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
@@ -48,3 +47,11 @@ C:\Users\jdcg1\Desktop\FederaProDesktop\obj\Debug\net8.0-windows\FederaProDeskto
 C:\Users\jdcg1\Desktop\FederaProDesktop\obj\Debug\net8.0-windows\FederaProDesktop.FormEstadisticasPartido.resources
 C:\Users\jdcg1\Desktop\FederaProDesktop\obj\Debug\net8.0-windows\FederaProDesktop.RegistroForm.resources
 C:\Users\jdcg1\Desktop\FederaProDesktop\obj\Debug\net8.0-windows\FederaProDesktop.SeleccionDeporteForm.resources
+C:\Users\jdcg1\Desktop\FederaProDesktop\obj\Debug\net8.0-windows\FederaProDesktop.Karting.MainKartingForm.resources
+C:\Users\jdcg1\Desktop\FederaProDesktop\obj\Debug\net8.0-windows\FederaProDesktop.Karting.CircuitosControl.resources
+C:\Users\jdcg1\Desktop\FederaProDesktop\obj\Debug\net8.0-windows\FederaProDesktop.Karting.EquiposKartingControl.resources
+C:\Users\jdcg1\Desktop\FederaProDesktop\obj\Debug\net8.0-windows\FederaProDesktop.Karting.InicioKartingControl.resources
+C:\Users\jdcg1\Desktop\FederaProDesktop\obj\Debug\net8.0-windows\FederaProDesktop.Karting.PilotosControl.resources
+C:\Users\jdcg1\Desktop\FederaProDesktop\obj\Debug\net8.0-windows\FederaProDesktop.Karting.DetallePilotoControl.resources
+C:\Users\jdcg1\Desktop\FederaProDesktop\obj\Debug\net8.0-windows\FederaProDesktop.Karting.CompeticionesKartingControl.resources
+C:\Users\jdcg1\Desktop\FederaProDesktop\obj\Debug\net8.0-windows\FederaProDesktop.Karting.DetalleEquipoKartingControl.resources

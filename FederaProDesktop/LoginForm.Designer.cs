@@ -1,11 +1,11 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace FederaProDesktop
 {
     public partial class LoginForm : Form
     {
-
         private void InitializeComponent()
         {
             this.lblUsuario = new Label();
@@ -18,39 +18,59 @@ namespace FederaProDesktop
 
             this.SuspendLayout();
 
+            // Fuente común
+            var fuente = new Font("Segoe UI", 10);
+
             // Logo
             this.logoImage.Image = Image.FromFile("ic_logo.png");
-            this.logoImage.Location = new Point(117, 10);
+            this.logoImage.Location = new Point(120, 20);
             this.logoImage.Size = new Size(100, 100);
             this.logoImage.SizeMode = PictureBoxSizeMode.Zoom;
 
             // Usuario
-            this.lblUsuario.Text = "Usuario:";
-            this.lblUsuario.Location = new Point(30, 130);
-            this.txtUsuario.Location = new Point(120, 127);
-            this.txtUsuario.Size = new Size(160, 20);
+            this.lblUsuario.Text = "Correo:";
+            this.lblUsuario.Font = fuente;
+            this.lblUsuario.Location = new Point(40, 140);
+            this.lblUsuario.Size = new Size(70, 25);
+            this.txtUsuario.Font = fuente;
+            this.txtUsuario.Location = new Point(120, 140);
+            this.txtUsuario.Size = new Size(160, 25);
 
             // Contraseña
             this.lblContrasena.Text = "Contraseña:";
-            this.lblContrasena.Location = new Point(30, 170);
-            this.txtContrasena.Location = new Point(120, 167);
-            this.txtContrasena.Size = new Size(160, 20);
+            this.lblContrasena.Font = fuente;
+            this.lblContrasena.Location = new Point(20, 180);
+            this.lblContrasena.Size = new Size(90, 25);
+            this.txtContrasena.Font = fuente;
+            this.txtContrasena.Location = new Point(120, 180);
+            this.txtContrasena.Size = new Size(160, 25);
             this.txtContrasena.UseSystemPasswordChar = true;
 
             // Botón Login
             this.btnLogin.Text = "Iniciar sesión";
-            this.btnLogin.Location = new Point(120, 210);
-            this.btnLogin.Size = new Size(160, 30);
+            this.btnLogin.Font = fuente;
+            this.btnLogin.Location = new Point(120, 230);
+            this.btnLogin.Size = new Size(160, 35);
+            this.btnLogin.BackColor = Color.LightSeaGreen;
+            this.btnLogin.ForeColor = Color.White;
+            this.btnLogin.FlatStyle = FlatStyle.Flat;
+            this.btnLogin.Cursor = Cursors.Hand;
             this.btnLogin.Click += new EventHandler(this.btnLogin_Click);
 
             // Botón Registro
             this.btnRegistro.Text = "Registrarse";
-            this.btnRegistro.Location = new Point(120, 250);
-            this.btnRegistro.Size = new Size(160, 30);
+            this.btnRegistro.Font = fuente;
+            this.btnRegistro.Location = new Point(120, 280);
+            this.btnRegistro.Size = new Size(160, 35);
+            this.btnRegistro.BackColor = Color.LightSlateGray;
+            this.btnRegistro.ForeColor = Color.White;
+            this.btnRegistro.FlatStyle = FlatStyle.Flat;
+            this.btnRegistro.Cursor = Cursors.Hand;
             this.btnRegistro.Click += new EventHandler(this.btnRegistro_Click);
 
             // Form
-            this.ClientSize = new Size(340, 310);
+            this.ClientSize = new Size(340, 360);
+            this.BackColor = Color.White;
             this.Controls.Add(this.logoImage);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.txtUsuario);
@@ -67,12 +87,12 @@ namespace FederaProDesktop
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.Label lblUsuario;
-        private System.Windows.Forms.Label lblContrasena;
-        private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.TextBox txtContrasena;
-        private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Button btnRegistro;
-        private System.Windows.Forms.PictureBox logoImage;
+        private Label lblUsuario;
+        private Label lblContrasena;
+        private TextBox txtUsuario;
+        private TextBox txtContrasena;
+        private Button btnLogin;
+        private Button btnRegistro;
+        private PictureBox logoImage;
     }
 }

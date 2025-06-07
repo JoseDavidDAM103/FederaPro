@@ -20,87 +20,107 @@
 
         private void InitializeComponent()
         {
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.lblApellido = new System.Windows.Forms.Label();
-            this.txtApellido = new System.Windows.Forms.TextBox();
-            this.lblCorreo = new System.Windows.Forms.Label();
-            this.txtCorreo = new System.Windows.Forms.TextBox();
-            this.lblUsuario = new System.Windows.Forms.Label();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.lblContrasena = new System.Windows.Forms.Label();
-            this.txtContrasena = new System.Windows.Forms.TextBox();
-            this.lblConfirmar = new System.Windows.Forms.Label();
-            this.txtConfirmar = new System.Windows.Forms.TextBox();
-            this.btnRegistrar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.lblNombre = new Label();
+            this.txtNombre = new TextBox();
+            this.lblApellido = new Label();
+            this.txtApellido = new TextBox();
+            this.lblCorreo = new Label();
+            this.txtCorreo = new TextBox();
+            this.lblUsuario = new Label();
+            this.txtUsuario = new TextBox();
+            this.lblContrasena = new Label();
+            this.txtContrasena = new TextBox();
+            this.lblConfirmar = new Label();
+            this.txtConfirmar = new TextBox();
+            this.btnRegistrar = new Button();
+            this.btnCancelar = new Button();
 
-            // Form configuration
+            // Form
             this.SuspendLayout();
-            this.ClientSize = new System.Drawing.Size(400, 400);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.ClientSize = new Size(450, 400);
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.MaximizeBox = false;
             this.Text = "Registro de Usuario - FederaPro";
+            this.BackColor = Color.White;
 
-            // Labels and TextBoxes
-            this.lblNombre.Text = "Nombre:";
-            this.lblNombre.Location = new System.Drawing.Point(30, 30);
-            this.txtNombre.Location = new System.Drawing.Point(150, 27);
-            this.txtNombre.Size = new System.Drawing.Size(200, 20);
+            Font labelFont = new Font("Segoe UI", 10F, FontStyle.Regular);
+            Font inputFont = new Font("Segoe UI", 10F);
 
-            this.lblApellido.Text = "Apellido:";
-            this.lblApellido.Location = new System.Drawing.Point(30, 70);
-            this.txtApellido.Location = new System.Drawing.Point(150, 67);
-            this.txtApellido.Size = new System.Drawing.Size(200, 20);
+            int labelX = 30, inputX = 180, width = 220, height = 26;
+            int topOffset = 30, spacing = 40;
 
-            this.lblCorreo.Text = "Correo electrónico:";
-            this.lblCorreo.Location = new System.Drawing.Point(30, 110);
-            this.txtCorreo.Location = new System.Drawing.Point(150, 107);
-            this.txtCorreo.Size = new System.Drawing.Size(200, 20);
+            // Estilo para todos los Labels y TextBox
+            void Estilizar(Label lbl, string text, int y)
+            {
+                lbl.Text = text;
+                lbl.Location = new Point(labelX, y);
+                lbl.Size = new Size(140, height);
+                lbl.Font = labelFont;
+            }
 
-            this.lblUsuario.Text = "Usuario:";
-            this.lblUsuario.Location = new System.Drawing.Point(30, 150);
-            this.txtUsuario.Location = new System.Drawing.Point(150, 147);
-            this.txtUsuario.Size = new System.Drawing.Size(200, 20);
+            void EstilizarTxt(TextBox txt, int y)
+            {
+                txt.Location = new Point(inputX, y);
+                txt.Size = new Size(width, height);
+                txt.Font = inputFont;
+                txt.BorderStyle = BorderStyle.FixedSingle;
+            }
 
-            this.lblContrasena.Text = "Contraseña:";
-            this.lblContrasena.Location = new System.Drawing.Point(30, 190);
-            this.txtContrasena.Location = new System.Drawing.Point(150, 187);
-            this.txtContrasena.Size = new System.Drawing.Size(200, 20);
-            this.txtContrasena.UseSystemPasswordChar = true;
+            // Controles
+            Estilizar(lblNombre, "Nombre:", topOffset);
+            EstilizarTxt(txtNombre, topOffset);
 
-            this.lblConfirmar.Text = "Confirmar contraseña:";
-            this.lblConfirmar.Location = new System.Drawing.Point(30, 230);
-            this.txtConfirmar.Location = new System.Drawing.Point(150, 227);
-            this.txtConfirmar.Size = new System.Drawing.Size(200, 20);
-            this.txtConfirmar.UseSystemPasswordChar = true;
+            Estilizar(lblApellido, "Apellido:", topOffset + spacing);
+            EstilizarTxt(txtApellido, topOffset + spacing);
 
+            Estilizar(lblCorreo, "Correo electrónico:", topOffset + spacing * 2);
+            EstilizarTxt(txtCorreo, topOffset + spacing * 2);
+
+            Estilizar(lblUsuario, "Usuario:", topOffset + spacing * 3);
+            EstilizarTxt(txtUsuario, topOffset + spacing * 3);
+
+            Estilizar(lblContrasena, "Contraseña:", topOffset + spacing * 4);
+            EstilizarTxt(txtContrasena, topOffset + spacing * 4);
+            txtContrasena.UseSystemPasswordChar = true;
+
+            Estilizar(lblConfirmar, "Confirmar contraseña:", topOffset + spacing * 5);
+            EstilizarTxt(txtConfirmar, topOffset + spacing * 5);
+            txtConfirmar.UseSystemPasswordChar = true;
+
+            // Botón Registrar
             this.btnRegistrar.Text = "Registrarse";
-            this.btnRegistrar.Location = new System.Drawing.Point(150, 280);
-            this.btnRegistrar.Size = new System.Drawing.Size(100, 30);
-            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            this.btnRegistrar.Location = new Point(inputX, topOffset + spacing * 6 + 10);
+            this.btnRegistrar.Size = new Size(100, 35);
+            this.btnRegistrar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            this.btnRegistrar.BackColor = Color.FromArgb(60, 130, 200);
+            this.btnRegistrar.ForeColor = Color.White;
+            this.btnRegistrar.FlatStyle = FlatStyle.Flat;
+            this.btnRegistrar.FlatAppearance.BorderSize = 0;
+            this.btnRegistrar.Click += new EventHandler(this.btnRegistrar_Click);
 
+            // Botón Cancelar
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.Location = new System.Drawing.Point(260, 280);
-            this.btnCancelar.Size = new System.Drawing.Size(90, 30);
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancelar.Location = new Point(inputX + 110, topOffset + spacing * 6 + 10);
+            this.btnCancelar.Size = new Size(100, 35);
+            this.btnCancelar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            this.btnCancelar.BackColor = Color.LightGray;
+            this.btnCancelar.ForeColor = Color.Black;
+            this.btnCancelar.FlatStyle = FlatStyle.Flat;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.Click += new EventHandler(this.btnCancelar_Click);
 
-            // Add controls
-            this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.lblApellido);
-            this.Controls.Add(this.txtApellido);
-            this.Controls.Add(this.lblCorreo);
-            this.Controls.Add(this.txtCorreo);
-            this.Controls.Add(this.lblUsuario);
-            this.Controls.Add(this.txtUsuario);
-            this.Controls.Add(this.lblContrasena);
-            this.Controls.Add(this.txtContrasena);
-            this.Controls.Add(this.lblConfirmar);
-            this.Controls.Add(this.txtConfirmar);
-            this.Controls.Add(this.btnRegistrar);
-            this.Controls.Add(this.btnCancelar);
+            // Agregar controles
+            this.Controls.AddRange(new Control[]
+            {
+        lblNombre, txtNombre,
+        lblApellido, txtApellido,
+        lblCorreo, txtCorreo,
+        lblUsuario, txtUsuario,
+        lblContrasena, txtContrasena,
+        lblConfirmar, txtConfirmar,
+        btnRegistrar, btnCancelar
+            });
 
             this.ResumeLayout(false);
             this.PerformLayout();

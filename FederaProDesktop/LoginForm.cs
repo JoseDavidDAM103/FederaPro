@@ -22,14 +22,44 @@ namespace FederaProDesktop
             registroForm.ShowDialog(); // Muestra el formulario de registro como modal
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
-            // Pase lo que pase, abrimos el MainForm (simulación)
-            MainForm mainForm = new MainForm();
-            mainForm.Show();
-            this.Hide(); // Ocultamos el login
+            string correo = txtUsuario.Text.Trim();
+            string contraseña = txtContrasena.Text;
 
-            // Opcional: cerrar completamente LoginForm cuando se cierre el MainForm
+            if (string.IsNullOrEmpty(correo) || string.IsNullOrEmpty(contraseña))
+            {
+                MessageBox.Show("Por favor, ingresa correo y contraseña.", "Campos requeridos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var api = new UsuarioApiService();
+            var loginResponse = await api.LoginAsync(correo, contraseña);
+
+            if (loginResponse == null)
+            {
+                MessageBox.Show("Correo o contraseña incorrectos.", "Error de autenticación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Redirección según el deporte
+            Form mainForm;
+
+            switch (loginResponse.NombreDeporte.ToLower())
+            {
+                case "baloncesto":
+                    mainForm = new MainForm();
+                    break;
+                case "karting fia":
+                    mainForm = new FederaProDesktop.Karting.MainKartingForm();
+                    break;
+                default:
+                    MessageBox.Show("El deporte asignado no está soportado actualmente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+            }
+
+            mainForm.Show();
+            this.Hide();
             mainForm.FormClosed += (s, args) => this.Close();
         }
     }
