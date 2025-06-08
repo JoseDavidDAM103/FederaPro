@@ -116,3 +116,4 @@ C:\Users\jdcg1\Desktop\FederaPro\FederaProDesktop\obj\Debug\net8.0-windows\ref\F
 C:\Users\jdcg1\Desktop\FederaPro\FederaProDesktop\obj\Debug\net8.0-windows\FederaProDesktop.Karting.CrearCompeticionKarting.resources
 C:\Users\jdcg1\Desktop\FederaPro\FederaProDesktop\obj\Debug\net8.0-windows\FederaProDesktop.Karting.DetalleCompeticionKarting.resources
 C:\Users\jdcg1\Desktop\FederaPro\FederaProDesktop\obj\Debug\net8.0-windows\FederaProDesktop.Karting.FormEstadisticasCarrera.resources
+C:\Users\jdcg1\Desktop\FederaPro\FederaProDesktop\obj\Debug\net8.0-windows\FederaProDesktop.Karting.CrearCarreraForm.resources

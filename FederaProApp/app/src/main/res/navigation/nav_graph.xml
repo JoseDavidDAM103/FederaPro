@@ -6,19 +6,19 @@
 
     <fragment
         android:id="@+id/nav_clasificacion"
-        android:name="com.example.federaproapp.fragments.ClasificacionFragment"
+        android:name="com.example.federaproapp.basket.fragments.ClasificacionFragment"
         android:label="Clasificación"
         tools:layout="@layout/fragment_clasificacion" />
 
     <fragment
         android:id="@+id/nav_partidos"
-        android:name="com.example.federaproapp.fragments.PartidosFragment"
+        android:name="com.example.federaproapp.basket.fragments.PartidosFragment"
         android:label="Partidos"
         tools:layout="@layout/fragment_partidos" />
 
     <fragment
         android:id="@+id/nav_estadisticas"
-        android:name="com.example.federaproapp.fragments.EstadisticasFragment"
+        android:name="com.example.federaproapp.basket.fragments.EstadisticasFragment"
         android:label="Estadísticas"
         tools:layout="@layout/fragment_estadisticas" />
 </navigation>

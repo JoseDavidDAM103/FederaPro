@@ -1,5 +1,6 @@
 package com.example.federaproapi.karting.servicios;
 
+import com.example.federaproapi.karting.dto.CrearKartingCompeticionDTO;
 import com.example.federaproapi.karting.dto.KartingCarreraDTO;
 import com.example.federaproapi.karting.dto.KartingClasificacionEquipoDTO;
 import com.example.federaproapi.karting.dto.KartingClasificacionPilotoDTO;
@@ -16,16 +17,18 @@ public class KartingCompeticioneService {
     private final KartingCompeticioneRepository repository;
     private final KartingEstadisticasPilotoRepository estadisticasPiloto;
     private final KartingPilotoRepository piloto;
+    private final KartingEquipoRepository equipo;
     private final KartingEstadisticasEquipoRepository estadisticasEquipo;
     private final KartingCarreraRepository carrera;
 
     public KartingCompeticioneService(KartingCompeticioneRepository repository, KartingEstadisticasEquipoRepository estadisticasEquipo,
-                                      KartingEstadisticasPilotoRepository estadisticasPiloto, KartingCarreraRepository carrera, KartingPilotoRepository piloto) {
+                                      KartingEstadisticasPilotoRepository estadisticasPiloto, KartingCarreraRepository carrera, KartingPilotoRepository piloto, KartingEquipoRepository equipo) {
         this.repository = repository;
         this.estadisticasPiloto = estadisticasPiloto;
         this.estadisticasEquipo = estadisticasEquipo;
         this.carrera = carrera;
         this.piloto = piloto;
+        this.equipo = equipo;
     }
 
     public List<KartingCompeticione> findAll() {
@@ -37,6 +40,22 @@ public class KartingCompeticioneService {
     }
 
     public KartingCompeticione save(KartingCompeticione competicion) {
+        return repository.save(competicion);
+    }
+
+    public KartingCompeticione crearDesdeDTO(CrearKartingCompeticionDTO dto) {
+        KartingCompeticione competicion = new KartingCompeticione();
+        competicion.setNombre(dto.nombre);
+        competicion.setTipo(dto.tipo);
+        competicion.setCategoria(dto.categoria);
+        competicion.setFechaInicio(dto.fechaInicio);
+        competicion.setFechaFin(dto.fechaFin);
+
+        if (dto.equiposIds != null && !dto.equiposIds.isEmpty()) {
+            List<KartingEquipo> equipos = equipo.findAllById(dto.equiposIds);
+            competicion.setEquipos(new HashSet<>(equipos));
+        }
+
         return repository.save(competicion);
     }
 

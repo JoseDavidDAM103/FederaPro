@@ -32,6 +32,7 @@ public class KartingCircuitoController {
 
     @PostMapping
     public KartingCircuito create(@RequestBody KartingCircuito circuito) {
+        circuito.setId(null);
         return service.save(circuito);
     }
 

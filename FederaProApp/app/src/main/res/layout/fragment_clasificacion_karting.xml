@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#FFF8F8F8"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Título de Pilotos -->
+        <TextView
+            android:id="@+id/tvTituloPilotos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Clasificación de Pilotos"
+            android:textStyle="bold"
+            android:textColor="#8B0000"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- RecyclerView Pilotos -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPilotos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:nestedScrollingEnabled="false"
+            android:scrollbars="vertical" />
+
+        <!-- Título de Equipos -->
+        <TextView
+            android:id="@+id/tvTituloEquipos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Clasificación de Equipos"
+            android:textStyle="bold"
+            android:textColor="#8B0000"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- RecyclerView Equipos -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvEquipos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:scrollbars="vertical" />
+
+    </LinearLayout>
+</ScrollView>

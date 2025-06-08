@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 public class KartingEstadisticaPilotoDTO {
+    private int id;
     private String nombrePiloto;
     private Integer idCarrera;
     private Integer posicion;

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:background="#FDF2F2">
+
+    <TextView
+        android:id="@+id/tvPosicion"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:textColor="#8B0000"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/tvNombrePiloto"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="Piloto"
+        android:textColor="#333"
+        android:paddingStart="8dp"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvEquipo"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="Equipo"
+        android:textColor="#555"
+        android:textSize="14sp"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/tvPuntos"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:text="100 pts"
+        android:textColor="#8B0000"
+        android:gravity="end"
+        android:textStyle="bold" />
+</LinearLayout>

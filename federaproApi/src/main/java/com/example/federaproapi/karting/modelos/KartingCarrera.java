@@ -27,6 +27,7 @@ public class KartingCarrera {
     private Instant fecha;
 
     @NotNull
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "id_competicion", nullable = false)

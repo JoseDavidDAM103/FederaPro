@@ -24,7 +24,7 @@ namespace FederaProDesktop.Karting.Servicios
         {
             try
             {
-                var response = await httpClient.PostAsJsonAsync("karting/estadisticas/piloto/guardar-todas", lista);
+                var response = await httpClient.PostAsJsonAsync("karting/estadisticas/piloto/guardar", lista);
                 return response.IsSuccessStatusCode;
             }
             catch (Exception ex)

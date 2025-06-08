@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.federaproapp.basket.SeleccionCompeticionActivity
 import com.example.federaproapp.databinding.ActivityRegistroBinding
 
 class RegistroActivity : AppCompatActivity() {

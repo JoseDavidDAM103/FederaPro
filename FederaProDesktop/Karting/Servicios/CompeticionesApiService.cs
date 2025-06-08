@@ -17,13 +17,13 @@ namespace FederaProDesktop.Karting.Servicios
         {
             httpClient = new HttpClient
             {
-                BaseAddress = new Uri("http://localhost:8080/karting/competiciones/")
+                BaseAddress = new Uri("http://localhost:8080")
             };
         }
 
         public async Task<List<KartingCompeticion>> ObtenerCompeticionesAsync()
         {
-            var response = await httpClient.GetAsync("");
+            var response = await httpClient.GetAsync("karting/competiciones");
             if (!response.IsSuccessStatusCode) return new List<KartingCompeticion>();
 
             var json = await response.Content.ReadAsStringAsync();
@@ -32,17 +32,17 @@ namespace FederaProDesktop.Karting.Servicios
 
         public async Task<KartingCompeticion> ObtenerCompeticionPorIdAsync(int id)
         {
-            var response = await httpClient.GetAsync($"{id}");
+            var response = await httpClient.GetAsync($"karting/competiciones/{id}");
             response.EnsureSuccessStatusCode();
             var json = await response.Content.ReadAsStringAsync();
             return JsonSerializer.Deserialize<KartingCompeticion>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
         }
 
-        public async Task<KartingCompeticion> CrearCompeticionAsync(KartingCompeticion nueva)
+        public async Task<KartingCompeticion> CrearCompeticionAsync(CrearKartingCompeticionDto nueva)
         {
             var json = JsonSerializer.Serialize(nueva);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync("", content);
+            var response = await httpClient.PostAsync("karting/competiciones", content);
             response.EnsureSuccessStatusCode();
             var responseJson = await response.Content.ReadAsStringAsync();
             return JsonSerializer.Deserialize<KartingCompeticion>(responseJson, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
@@ -52,7 +52,7 @@ namespace FederaProDesktop.Karting.Servicios
         {
             var json = JsonSerializer.Serialize(actualizada);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PutAsync($"{id}", content);
+            var response = await httpClient.PutAsync($"karting/competiciones/{id}", content);
             response.EnsureSuccessStatusCode();
             var responseJson = await response.Content.ReadAsStringAsync();
             return JsonSerializer.Deserialize<KartingCompeticion>(responseJson, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
@@ -60,7 +60,7 @@ namespace FederaProDesktop.Karting.Servicios
 
         public async Task<bool> EliminarCompeticionAsync(int id)
         {
-            var response = await httpClient.DeleteAsync($"{id}");
+            var response = await httpClient.DeleteAsync($"karting/competiciones/{id}");
             return response.IsSuccessStatusCode;
         }
 

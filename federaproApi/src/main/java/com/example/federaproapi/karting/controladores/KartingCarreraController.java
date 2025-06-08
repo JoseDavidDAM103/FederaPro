@@ -1,5 +1,6 @@
 package com.example.federaproapi.karting.controladores;
 
+import com.example.federaproapi.karting.dto.CrearKartingCarreraDTO;
 import com.example.federaproapi.karting.modelos.KartingCarrera;
 import com.example.federaproapi.karting.servicios.KartingCarreraService;
 import org.springframework.http.ResponseEntity;
@@ -31,8 +32,13 @@ public class KartingCarreraController {
     }
 
     @PostMapping
-    public KartingCarrera create(@RequestBody KartingCarrera carrera) {
-        return service.save(carrera);
+    public ResponseEntity<KartingCarrera> create(@RequestBody CrearKartingCarreraDTO dto) {
+        try {
+            KartingCarrera nueva = service.crearDesdeDTO(dto);
+            return ResponseEntity.ok(nueva);
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @PutMapping("/{id}")

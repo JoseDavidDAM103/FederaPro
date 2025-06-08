@@ -56,20 +56,21 @@ namespace FederaProDesktop.Karting
             var seleccionados = checkedListBoxEquipos.CheckedItems.Cast<string>().ToList();
             var equiposSeleccionados = equipos.Where(e => seleccionados.Contains(e.Nombre)).ToList();
 
-            var nueva = new KartingCompeticion
+            var dto = new CrearKartingCompeticionDto
             {
-                Nombre = nombre,
-                Tipo = tipo,
-                Categoria = categoria,
-                FechaInicio = fechaInicio,
-                FechaFin = fechaFin,
-                EquiposIds = equiposSeleccionados.Select(e => e.Id).ToList()
+                nombre = nombre,
+                tipo = tipo,
+                categoria = categoria,
+                fechaInicio = fechaInicio,
+                fechaFin = fechaFin,
+                equiposIds = equiposSeleccionados.Select(e => (long)e.Id).ToList()
             };
 
             try
             {
-                await _apiService.CrearCompeticionAsync(nueva);
-                CompeticionCreada?.Invoke(nueva);
+                await _apiService.CrearCompeticionAsync(dto);
+                MessageBox.Show("Competición creada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Aquí puedes llamar a CompeticionCreada con datos reales si necesitas refrescar listas, etc.
             }
             catch (Exception ex)
             {

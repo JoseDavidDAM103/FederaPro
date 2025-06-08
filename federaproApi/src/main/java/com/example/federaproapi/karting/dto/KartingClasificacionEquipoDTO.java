@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class KartingClasificacionEquipoDTO {
-    private String nombreEquipo;
+    private String equipo;
     private int puntos;
 }

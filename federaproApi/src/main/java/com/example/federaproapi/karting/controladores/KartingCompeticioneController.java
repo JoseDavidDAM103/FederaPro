@@ -1,5 +1,6 @@
 package com.example.federaproapi.karting.controladores;
 
+import com.example.federaproapi.karting.dto.CrearKartingCompeticionDTO;
 import com.example.federaproapi.karting.dto.KartingCarreraDTO;
 import com.example.federaproapi.karting.dto.KartingClasificacionEquipoDTO;
 import com.example.federaproapi.karting.dto.KartingClasificacionPilotoDTO;
@@ -34,8 +35,8 @@ public class KartingCompeticioneController {
     }
 
     @PostMapping
-    public KartingCompeticione create(@RequestBody KartingCompeticione competicion) {
-        return service.save(competicion);
+    public KartingCompeticione create(@RequestBody CrearKartingCompeticionDTO dto) {
+        return service.crearDesdeDTO(dto);
     }
 
     @PutMapping("/{id}")

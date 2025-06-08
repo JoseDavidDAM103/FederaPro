@@ -48,10 +48,10 @@ namespace FederaProDesktop.Karting
                 }},
 
                 { "Competiciones", () => {
-                    var competicionesControl = new CompeticionesControl();
-                    competicionesControl.VerDetalleCompeticion += (nombre, tipo) =>
+                    var competicionesControl = new CompeticionesKartingControl();
+                    competicionesControl.VerDetalleCompeticionKarting += (nombre, tipo) =>
                     {
-                        MostrarControl(new DetalleCompeticion(nombre, tipo));
+                        MostrarControl(new DetalleCompeticionKarting(nombre, tipo));
                     };
                     MostrarControl(competicionesControl);
                 }}

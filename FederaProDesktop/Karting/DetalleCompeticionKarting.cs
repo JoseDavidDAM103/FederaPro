@@ -106,11 +106,11 @@ namespace FederaProDesktop.Karting
                 dgvClasificacionPilotos.DataSource = pilotos;
                 dgvClasificacionEquipos.DataSource = equipos;
 
-                dgvClasificacionPilotos.Columns["NombrePiloto"].HeaderText = "Piloto";
+                dgvClasificacionPilotos.Columns["Piloto"].HeaderText = "Piloto";
                 dgvClasificacionPilotos.Columns["Equipo"].HeaderText = "Equipo";
                 dgvClasificacionPilotos.Columns["Puntos"].HeaderText = "Pts";
 
-                dgvClasificacionEquipos.Columns["NombreEquipo"].HeaderText = "Equipo";
+                dgvClasificacionEquipos.Columns["Equipo"].HeaderText = "Equipo";
                 dgvClasificacionEquipos.Columns["Puntos"].HeaderText = "Pts";
             }
             catch (Exception ex)
@@ -144,6 +144,16 @@ namespace FederaProDesktop.Karting
                 {
                     MessageBox.Show("Error al cargar los pilotos: " + ex.Message);
                 }
+            }
+        }
+        private async void btnAgregarCarrera_Click(object sender, EventArgs e)
+        {
+            var form = new CrearCarreraForm(_nombreCompeticion); // Le pasamos la competición actual
+            var result = form.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                await CargarCarrerasAsync(); // Refrescamos la lista de carreras
             }
         }
     }
