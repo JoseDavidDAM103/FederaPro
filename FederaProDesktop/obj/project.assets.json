@@ -685,11 +685,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jdcg1\\Desktop\\FederaProDesktop\\FederaProDesktop.csproj",
+      "projectUniqueName": "C:\\Users\\jdcg1\\Desktop\\FederaPro\\FederaProDesktop\\FederaProDesktop.csproj",
       "projectName": "FederaProDesktop",
-      "projectPath": "C:\\Users\\jdcg1\\Desktop\\FederaProDesktop\\FederaProDesktop.csproj",
+      "projectPath": "C:\\Users\\jdcg1\\Desktop\\FederaPro\\FederaProDesktop\\FederaProDesktop.csproj",
       "packagesPath": "C:\\Users\\jdcg1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jdcg1\\Desktop\\FederaProDesktop\\obj\\",
+      "outputPath": "C:\\Users\\jdcg1\\Desktop\\FederaPro\\FederaProDesktop\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "E:\\Microsoft Visual Studio\\Shared\\NuGetPackages"

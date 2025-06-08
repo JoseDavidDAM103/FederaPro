@@ -45,4 +45,11 @@ public class KartingCompeticione {
     @OneToMany(mappedBy = "idCompeticion")
     private Set<KartingCarrera> kartingCarreras = new LinkedHashSet<>();
 
+    @ManyToMany
+    @JoinTable(
+            name = "karting_competiciones_equipos",
+            joinColumns = @JoinColumn(name = "id_competicion"),
+            inverseJoinColumns = @JoinColumn(name = "id_equipo")
+    )
+    private Set<KartingEquipo> equipos = new LinkedHashSet<>();
 }

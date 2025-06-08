@@ -1,9 +1,8 @@
-﻿using FederaProDesktop.Karting.DTOs;
-using FederaProDesktop.Karting.Servicios;
+﻿using FederaProDesktop.Karting.Servicios;
+using FederaProDesktop.Karting.DTOs;
 using System;
 using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Json;
+using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -11,81 +10,104 @@ namespace FederaProDesktop.Karting
 {
     public partial class CompeticionesKartingControl : UserControl
     {
-        private readonly KartingCompeticionApiService competicionService = new KartingCompeticionApiService();
-
-        public event Action<string, string> VerDetalleCompeticion;
+        public event Action<string, string> VerDetalleCompeticionKarting;
+        private readonly KartingCompeticionApiService _apiService = new();
+        private FlowLayoutPanel panelCompeticiones;
 
         public CompeticionesKartingControl()
         {
             InitializeComponent();
-            _ = CargarCompeticionesDesdeApiAsync();
+            InicializarPanelCompeticiones();
+            _ = CargarCompeticionesAsync();
         }
 
-        private async Task CargarCompeticionesDesdeApiAsync()
+        private void InicializarPanelCompeticiones()
+        {
+            panelCompeticiones = new FlowLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                AutoScroll = true,
+                Padding = new Padding(20),
+                WrapContents = true
+            };
+            Controls.Add(panelCompeticiones);
+            Controls.SetChildIndex(panelCompeticiones, 0);
+        }
+
+        private async Task CargarCompeticionesAsync()
         {
             try
             {
-                var competiciones = await competicionService.GetAllCompeticionesAsync();
+                var lista = await _apiService.ObtenerCompeticionesAsync();
+                panelCompeticiones.Controls.Clear();
 
-                dataGridViewCompeticiones.Rows.Clear();
-                foreach (var comp in competiciones)
+                foreach (var competicion in lista)
                 {
-                    dataGridViewCompeticiones.Rows.Add(comp.Nombre, comp.Temporada);
+                    var btn = new Button
+                    {
+                        Width = 220,
+                        Height = 100,
+                        Margin = new Padding(10),
+                        BackColor = Color.FromArgb(220, 80, 50), // Color adaptado a karting
+                        ForeColor = Color.White,
+                        Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                        Text = $"{competicion.Nombre}\nCategoría: {competicion.Categoria}",
+                        Tag = competicion
+                    };
+                    btn.FlatStyle = FlatStyle.Flat;
+                    btn.FlatAppearance.BorderSize = 0;
+                    btn.Click += (s, e) => AbrirDetalle(competicion.Nombre, competicion.Categoria);
+                    panelCompeticiones.Controls.Add(btn);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar competiciones: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al cargar competiciones: {ex.Message}");
             }
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void AbrirDetalle(string nombre, string categoria)
         {
-            MessageBox.Show("Funcionalidad para agregar competición.", "Agregar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var detalle = new DetalleCompeticionKarting(nombre, categoria)
+            {
+                Dock = DockStyle.Fill
+            };
+
+            var form = new Form
+            {
+                Text = $"Detalle de la competición: {nombre}",
+                Size = new Size(850, 600),
+                StartPosition = FormStartPosition.CenterParent
+            };
+
+            form.Controls.Add(detalle);
+            form.ShowDialog();
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnAñadir_Click(object sender, EventArgs e)
         {
-            if (dataGridViewCompeticiones.SelectedRows.Count > 0)
+            var crearControl = new CrearCompeticionKarting
             {
-                dataGridViewCompeticiones.Rows.RemoveAt(dataGridViewCompeticiones.SelectedRows[0].Index);
-            }
-            else
-            {
-                MessageBox.Show("Selecciona una competición para eliminar.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
+                Dock = DockStyle.Fill
+            };
 
-        private void dataGridViewCompeticiones_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
+            var form = new Form
             {
-                string nombre = dataGridViewCompeticiones.Rows[e.RowIndex].Cells[0].Value.ToString();
-                string temporada = dataGridViewCompeticiones.Rows[e.RowIndex].Cells[1].Value.ToString();
-                VerDetalleCompeticion?.Invoke(nombre, temporada);
-            }
-        }
+                Text = "Crear nueva competición (Karting)",
+                Size = new Size(500, 500),
+                StartPosition = FormStartPosition.CenterParent
+            };
 
-        private async void btnActualizar_Click(object sender, EventArgs e)
-        {
-            try
+            form.Controls.Add(crearControl);
+
+            crearControl.CompeticionCreada += async (nueva) =>
             {
-                var competiciones = await competicionService.GetAllCompeticionesAsync();
-                dataGridViewCompeticiones.Rows.Clear();
-                dataGridViewCompeticiones.Columns.Clear();
+                form.Close();
+                MessageBox.Show("Competición creada con éxito.");
+                await CargarCompeticionesAsync();
+            };
 
-                dataGridViewCompeticiones.Columns.Add("Nombre", "Nombre");
-                dataGridViewCompeticiones.Columns.Add("Temporada", "Temporada");
-
-                foreach (var comp in competiciones)
-                {
-                    dataGridViewCompeticiones.Rows.Add(comp.Nombre, comp.Temporada);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al obtener las competiciones: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            form.ShowDialog();
         }
     }
 }

@@ -1,11 +1,18 @@
 package com.example.federaproapi.karting.controladores;
 
+import com.example.federaproapi.karting.dto.KartingEstadisticaPilotoDTO;
+import com.example.federaproapi.karting.modelos.KartingCarrera;
 import com.example.federaproapi.karting.modelos.KartingEstadisticasPiloto;
+import com.example.federaproapi.karting.modelos.KartingPiloto;
+import com.example.federaproapi.karting.repositorios.KartingCarreraRepository;
+import com.example.federaproapi.karting.repositorios.KartingPilotoRepository;
 import com.example.federaproapi.karting.servicios.KartingEstadisticasPilotoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/karting/estadisticas/piloto")
@@ -13,9 +20,13 @@ import java.util.List;
 public class KartingEstadisticasPilotoController {
 
     private final KartingEstadisticasPilotoService service;
+    private final KartingPilotoRepository kartingPilotoRepository;
+    private final KartingCarreraRepository kartingCarreraRepository;
 
-    public KartingEstadisticasPilotoController(KartingEstadisticasPilotoService service) {
+    public KartingEstadisticasPilotoController(KartingEstadisticasPilotoService service, KartingCarreraRepository kartingCarreraRepository, KartingPilotoRepository kartingPilotoRepository) {
         this.service = service;
+        this.kartingPilotoRepository = kartingPilotoRepository;
+        this.kartingCarreraRepository = kartingCarreraRepository;
     }
 
     @GetMapping
@@ -61,5 +72,29 @@ public class KartingEstadisticasPilotoController {
     @GetMapping("/carrera/{carreraId}")
     public List<KartingEstadisticasPiloto> getByCarrera(@PathVariable Integer carreraId) {
         return service.findByCarreraId(carreraId);
+    }
+
+    @PostMapping("/guardar")
+    public List<KartingEstadisticasPiloto> guardarTodasDesdeDTO(@RequestBody List<KartingEstadisticaPilotoDTO> dtos) {
+        List<KartingEstadisticasPiloto> guardadas = new ArrayList<>();
+
+        for (KartingEstadisticaPilotoDTO dto : dtos) {
+            KartingPiloto piloto = kartingPilotoRepository.findByNombre(dto.getNombrePiloto());
+            if (piloto == null) continue; // o lanza excepción si lo prefieres
+
+            KartingCarrera carrera = kartingCarreraRepository.findById(dto.getIdCarrera())
+                    .orElseThrow(() -> new RuntimeException("Carrera no encontrada con ID: " + dto.getIdCarrera()));
+
+            KartingEstadisticasPiloto estadistica = new KartingEstadisticasPiloto();
+            estadistica.setIdPiloto(piloto);
+            estadistica.setIdCarrera(carrera);
+            estadistica.setPosicion(dto.getPosicion());
+            estadistica.setTiempoTotal(dto.getTiempoTotal());
+            estadistica.setVueltas(dto.getVueltas());
+
+            guardadas.add(service.save(estadistica));
+        }
+
+        return guardadas;
     }
 }

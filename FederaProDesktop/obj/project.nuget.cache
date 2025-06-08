@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KXpwl/vcOG01iv0EtLE1U0peyqKWBEaKbfIkIRnYZRlD5tD9/Se7JjWwexR5TsCjfETN/f2XfGOqq+dyvf8Paw==",
+  "dgSpecHash": "P9b676e4fdrqdA8Pnz8gHdr4ArEqRug7+Oybou4ST8+SzuNJCRXIhr65gKXcaIjblv7iAQUIHKqMr96z41ygDw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jdcg1\\Desktop\\FederaProDesktop\\FederaProDesktop.csproj",
+  "projectFilePath": "C:\\Users\\jdcg1\\Desktop\\FederaPro\\FederaProDesktop\\FederaProDesktop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jdcg1\\.nuget\\packages\\harfbuzzsharp\\8.3.0.1\\harfbuzzsharp.8.3.0.1.nupkg.sha512",
     "C:\\Users\\jdcg1\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\8.3.0.1\\harfbuzzsharp.nativeassets.macos.8.3.0.1.nupkg.sha512",

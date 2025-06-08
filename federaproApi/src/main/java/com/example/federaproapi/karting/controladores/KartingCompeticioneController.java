@@ -1,5 +1,8 @@
 package com.example.federaproapi.karting.controladores;
 
+import com.example.federaproapi.karting.dto.KartingCarreraDTO;
+import com.example.federaproapi.karting.dto.KartingClasificacionEquipoDTO;
+import com.example.federaproapi.karting.dto.KartingClasificacionPilotoDTO;
 import com.example.federaproapi.karting.modelos.KartingCompeticione;
 import com.example.federaproapi.karting.servicios.KartingCompeticioneService;
 import org.springframework.http.ResponseEntity;
@@ -51,5 +54,20 @@ public class KartingCompeticioneController {
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/{nombre}/carreras")
+    public List<KartingCarreraDTO> getCarrerasDeCompeticion(@PathVariable String nombre) {
+        return service.getCarrerasDeCompeticion(nombre);
+    }
+
+    @GetMapping("/{nombre}/clasificacion/pilotos")
+    public List<KartingClasificacionPilotoDTO> clasificacionPilotos(@PathVariable String nombre) {
+        return service.getClasificacionPilotos(nombre);
+    }
+
+    @GetMapping("/{nombre}/clasificacion/equipos")
+    public List<KartingClasificacionEquipoDTO> clasificacionEquipos(@PathVariable String nombre) {
+        return service.getClasificacionEquipos(nombre);
     }
 }

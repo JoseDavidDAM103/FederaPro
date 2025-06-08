@@ -41,4 +41,8 @@ public class KartingEquipo {
     @OneToMany(mappedBy = "idEquipo")
     private Set<KartingPiloto> kartingPilotos = new LinkedHashSet<>();
 
+    @ManyToMany(mappedBy = "equipos")
+    @JsonIgnore
+    private Set<KartingCompeticione> competiciones = new LinkedHashSet<>();
+
 }
