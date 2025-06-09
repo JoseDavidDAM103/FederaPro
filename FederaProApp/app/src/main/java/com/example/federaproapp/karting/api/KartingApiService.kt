@@ -16,16 +16,16 @@ interface KartingApiService {
     fun obtenerCompeticionesKarting(): Call<List<KartingCompeticionDTO>>
 
 
-    @GET("karting/competiciones/{nombre}/clasificacion-pilotos")
+    @GET("karting/competiciones/{nombre}/clasificacion/pilotos")
     fun obtenerClasificacionPilotos(@Path("nombre") nombreCompeticion: String): Call<List<KartingClasificacionPilotoDTO>>
 
-    @GET("karting/competiciones/{nombre}/clasificacion-equipos")
+    @GET("karting/competiciones/{nombre}/clasificacion/equipos")
     fun obtenerClasificacionEquipos(@Path("nombre") nombreCompeticion: String): Call<List<KartingClasificacionEquipoDTO>>
 
     @GET("karting/competiciones/{nombre}/carreras")
     fun obtenerCarrerasPorCompeticion(@Path("nombre") nombreCompeticion: String): Call<List<KartingCarreraDTO>>
 
-    @GET("karting/estadisticas//victorias")
+    @GET("karting/estadisticas/piloto/victorias")
     fun obtenerRankingVictorias(@Query("nombreCompeticion") nombre: String): Call<List<KartingEstadisticaPilotoDTO>>
 
     @GET("karting/estadisticas/piloto/podios")

@@ -9,7 +9,7 @@ import com.example.federaproapp.R
 import com.example.federaproapp.karting.data.KartingCompeticionDTO
 
 class CompeticionKartingAdapter(
-    private val lista: List<KartingCompeticionDTO>,
+    private var lista: List<KartingCompeticionDTO>,
     private val onItemClick: (KartingCompeticionDTO) -> Unit
 ) : RecyclerView.Adapter<CompeticionKartingAdapter.CompeticionViewHolder>() {
 
@@ -36,8 +36,7 @@ class CompeticionKartingAdapter(
         holder.tvTipo.text = competicion.tipo
     }
     fun actualizarLista(nuevaLista: List<KartingCompeticionDTO>) {
-        (lista as MutableList).clear()
-        lista.addAll(nuevaLista)
+        lista = nuevaLista.toMutableList()
         notifyDataSetChanged()
     }
 

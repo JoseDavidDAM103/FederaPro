@@ -38,7 +38,7 @@ class CarrerasFragmentKarting : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         adapter = CarreraKartingAdapter(emptyList()) { carrera ->
-            Toast.makeText(requireContext(), "Carrera: ${carrera.nombreCircuito}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Carrera: ${carrera.circuito}", Toast.LENGTH_SHORT).show()
             // Aquí puedes abrir un detalle o estadísticas
         }
 
@@ -76,8 +76,8 @@ class CarrerasFragmentKarting : Fragment() {
     }
 
     companion object {
-        fun newInstance(nombreCompeticion: String): ClasificacionFragmentKarting {
-            val fragment = ClasificacionFragmentKarting()
+        fun newInstance(nombreCompeticion: String): CarrerasFragmentKarting {
+            val fragment = CarrerasFragmentKarting()
             val args = Bundle()
             args.putString("nombreCompeticion", nombreCompeticion)
             fragment.arguments = args

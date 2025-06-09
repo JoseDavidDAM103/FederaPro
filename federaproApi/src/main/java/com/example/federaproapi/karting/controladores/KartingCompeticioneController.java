@@ -60,6 +60,7 @@ public class KartingCompeticioneController {
     @GetMapping("/{nombre}/carreras")
     public List<KartingCarreraDTO> getCarrerasDeCompeticion(@PathVariable String nombre) {
         return service.getCarrerasDeCompeticion(nombre);
+
     }
 
     @GetMapping("/{nombre}/clasificacion/pilotos")
