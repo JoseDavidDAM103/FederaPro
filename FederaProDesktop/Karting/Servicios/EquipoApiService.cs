@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -17,6 +18,24 @@ namespace FederaProDesktop.Karting.Servicios
         {
             _httpClient = new HttpClient();
             _httpClient.BaseAddress = new Uri("http://localhost:8080/");
+        }
+
+        public async Task CrearEquipoAsync(KartingEquipo equipo)
+        {
+            var response = await _httpClient.PostAsJsonAsync("karting/equipos", equipo);
+            response.EnsureSuccessStatusCode();
+        }
+
+        public async Task ActualizarEquipoAsync(KartingEquipo equipo)
+        {
+            var response = await _httpClient.PutAsJsonAsync($"karting/equipos/{equipo.Id}", equipo);
+            response.EnsureSuccessStatusCode();
+        }
+
+        public async Task EliminarEquipoAsync(int id)
+        {
+            var response = await _httpClient.DeleteAsync($"karting/equipos/{id}");
+            response.EnsureSuccessStatusCode();
         }
 
         public async Task<List<KartingEquipo>> ObtenerEquiposAsync()

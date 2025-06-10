@@ -53,6 +53,7 @@
             this.dataGridViewEquipos.Size = new System.Drawing.Size(650, 260);
             this.dataGridViewEquipos.TabIndex = 0;
             this.dataGridViewEquipos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEquipos_CellDoubleClick);
+            this.dataGridViewEquipos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEquipos_CellContentClick);
 
             // 
             // btnAgregar

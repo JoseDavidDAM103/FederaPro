@@ -5,7 +5,7 @@
         private System.ComponentModel.IContainer components = null;
         private Label lblTitulo;
         private Button btnJugadores;
-        private Button btnEstadisticas;
+        //private Button btnEstadisticas;
         private Button btnPartidos;
         private Panel panelBotones;
         private Panel panelContenido;
@@ -27,7 +27,7 @@
         {
             this.lblTitulo = new Label();
             this.btnJugadores = new Button();
-            this.btnEstadisticas = new Button();
+            //this.btnEstadisticas = new Button();
             this.btnPartidos = new Button();
             this.panelBotones = new Panel();
             this.panelContenido = new Panel();
@@ -52,7 +52,7 @@
             this.panelBotones.Height = 40;
             this.panelBotones.BackColor = Color.LightGray;
             this.panelBotones.Controls.Add(this.btnJugadores);
-            this.panelBotones.Controls.Add(this.btnEstadisticas);
+            //this.panelBotones.Controls.Add(this.btnEstadisticas);
             this.panelBotones.Controls.Add(this.btnPartidos);
 
             // btnJugadores
@@ -62,10 +62,10 @@
             this.btnJugadores.Click += new System.EventHandler(this.btnJugadores_Click);
 
             // btnEstadisticas
-            this.btnEstadisticas.Text = "Estadísticas";
-            this.btnEstadisticas.Width = 100;
-            this.btnEstadisticas.Location = new Point(120, 7);
-            this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
+            // this.btnEstadisticas.Text = "Estadísticas";
+            // this.btnEstadisticas.Width = 100;
+            // this.btnEstadisticas.Location = new Point(120, 7);
+            // this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
 
             // btnPartidos
             this.btnPartidos.Text = "Partidos";
@@ -163,14 +163,14 @@
             this.btnJugadores.Location = new Point(10, 5);
 
             // btnEstadisticas
-            this.btnEstadisticas.Text = "Estadísticas";
-            this.btnEstadisticas.Font = buttonFont;
-            this.btnEstadisticas.ForeColor = Color.White;
-            this.btnEstadisticas.BackColor = mainColor;
-            this.btnEstadisticas.FlatStyle = FlatStyle.Flat;
-            this.btnEstadisticas.FlatAppearance.BorderSize = 0;
-            this.btnEstadisticas.Size = new Size(100, 30);
-            this.btnEstadisticas.Location = new Point(120, 5);
+            //this.btnEstadisticas.Text = "Estadísticas";
+            //this.btnEstadisticas.Font = buttonFont;
+            //this.btnEstadisticas.ForeColor = Color.White;
+            //this.btnEstadisticas.BackColor = mainColor;
+            //this.btnEstadisticas.FlatStyle = FlatStyle.Flat;
+            //this.btnEstadisticas.FlatAppearance.BorderSize = 0;
+            //this.btnEstadisticas.Size = new Size(100, 30);
+            //this.btnEstadisticas.Location = new Point(120, 5);
 
             // btnPartidos
             this.btnPartidos.Text = "Partidos";

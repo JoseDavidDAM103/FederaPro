@@ -206,10 +206,12 @@ namespace FederaProDesktop
             else if (columna.Name == "btnCancelar")
             {
                 if (fila.Cells["Id"].Value == null)
-                    dgvJugadores.Rows.RemoveAt(e.RowIndex);
+                    await CargarJugadoresAsync();
                 else
                     await CargarJugadoresAsync();
             }
+
+            OcultarColumnasAccion();
         }
 
         private void dgvJugadores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

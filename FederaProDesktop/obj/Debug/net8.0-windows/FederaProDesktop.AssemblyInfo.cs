@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FederaProDesktop")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b83cde9db80134fb51a9193bb431a7596f45dc8")]
 [assembly: System.Reflection.AssemblyProductAttribute("FederaProDesktop")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FederaProDesktop")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

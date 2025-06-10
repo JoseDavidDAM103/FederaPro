@@ -226,10 +226,12 @@ namespace FederaProDesktop
             else if (columna.Name == "btnCancelar")
             {
                 if (fila.Cells["Id"].Value == null || Convert.ToInt32(fila.Cells["Id"].Value) == 0)
-                    dgvEquipos.Rows.RemoveAt(e.RowIndex);
+                    await CargarEquiposAsync();
                 else
                     await CargarEquiposAsync();
             }
+
+            OcultarColumnasAccion();
         }
 
 
