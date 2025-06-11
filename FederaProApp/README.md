@@ -1,130 +1,109 @@
-# 📡 FederaProApi
+# 📱 FederaProApp (Android)
 
-**FederaProApi** es el backend de la plataforma FederaPro. Está desarrollado con **Java 17** y **Spring Boot**, y expone una API RESTful para la gestión completa de datos deportivos relacionados con diferentes disciplinas, actualmente **baloncesto** y **karting**.
+**FederaProApp** es la aplicación móvil de **FederaPro**, desarrollada en **Kotlin** para Android. Está centrada en la **visualización de datos deportivos** como clasificaciones, partidos, carreras y estadísticas, adaptándose a los deportes actualmente soportados: **baloncesto** y **karting**.
 
 ---
 
-## 🚀 Tecnologías utilizadas
+## 📦 Tecnologías utilizadas
 
-- 🧠 Java 17
-- ⚙️ Spring Boot
-- 🗄️ JPA (Hibernate)
-- 🧪 JUnit 5
-- 🔒 Spring Security (parcial, en desarrollo)
-- 🛢️ MySQL / MariaDB
-- 🌐 RESTful API con JSON
+- 🤖 Kotlin (Android API 26+)
+- 🧭 Jetpack Navigation
+- 🌐 Retrofit (para llamadas HTTP)
+- 🎨 Material Design
+- 📊 Gráficas interactivas (custom drawables)
+- 🧱 Arquitectura basada en fragmentos
 
 ---
 
 ## 📂 Estructura del proyecto
 
 ```
-FederaProApi/
-├── src/
-│   ├── main/
-│   │   ├── java/example/com/federapro         # Código fuente principal
-              ├── basket                       # Modelos, Controllers, Servicios y Repositorios de baloncesto
-              ├── configuracion                # Modelos, Controllers, Servicios y Repositorios de Configuración
-              ├── karting                      # Modelos, Controllers, Servicios y Repositorios de Karting
-              ├── Utils/enum                   # Enumerados
-│   │   └── resources/                         # Configuración (application.properties, etc.)
-│   └── test/                                  # Tests unitarios
-├── pom.xml                                    # Configuración de Maven
-└── README.md
+mobile/
+├── app/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/com/federaproapp/
+│   │   │   │   ├── data/                     # Modelos para el login
+│   │   │   │   ├── basket/                   # Vistas y lógica para baloncesto
+│   │   │   │   ├── karting/                  # Vistas y lógica para karting
+│   │   │   │   ├── api/                      # Llamadas a la API (Retrofit)
+│   │   │   │   └── ui/                       # Funciones auxiliares
+│   │   │   └── res/                          # Layouts, drawables, strings, etc.
+│   ├── build.gradle
+├── README.md
 ```
 
 ---
 
-## ⚙️ Configuración inicial
+## ⚙️ Requisitos
 
-### 1. Requisitos previos
-
-- Java 17+
-- Maven 3.8+
-- MySQL o MariaDB
-- IDE recomendado: IntelliJ IDEA
-
-### 2. Configura la base de datos
-
-Crea una base de datos en tu gestor (ej. `federapro_db`) y configura el archivo `src/main/resources/application.properties`:
-
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/federapro?useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8
-spring.datasource.username=root
-spring.datasource.password=mysql
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.jpa.hibernate.ddl-auto=none
-spring.jpa.show-sql=true
-
-
-# Habilitar la carga de archivos en Spring Boot
-spring.servlet.multipart.enabled=true
-spring.servlet.multipart.max-file-size=2MB
-spring.servlet.multipart.max-request-size=2MB
-
-spring.security.user.name=user
-spring.security.user.password=password
-
-server.address=0.0.0.0
-```
-
-### 3. Ejecuta el backend
-
-Desde terminal:
-
-```bash
-./mvnw spring-boot:run
-```
-
-> La API se expondrá en: `http://localhost:8080`
+- Android Studio Giraffe o superior
+- Emulador o dispositivo físico (API 26+)
+- Backend ejecutándose localmente o accesible desde red
 
 ---
 
-## 📚 Endpoints destacados
+## ▶️ Ejecución
 
-### Baloncesto
+1. Abre la carpeta `mobile/` en Android Studio.
+2. Conecta un dispositivo o lanza un emulador.
+3. Ejecuta el proyecto (`Run > Run app`).
 
-- `/basket/equipos` → Gestión de equipos
-- `/basket/jugadores` → Gestión de jugadores
-- `/basket/partidos` → CRUD de partidos
-- `/basket/estadisticas` → Estadísticas por partido
-
----
-
-### Karting
-
-- `/api/configuraciones` → Gestión de configuraciones
-- `/api/deportes` → Gestión de deportes
-- `/api/usuarios` → Gestión de Usuarios
+> La app espera que la API esté disponible en `http://10.0.2.2:8080` (si se usa emulador).
 
 ---
 
-### Karting
+## 🧩 Módulos funcionales
 
-- `/karting/pilotos` → Gestión de pilotos
-- `/karting/circuitos` → Gestión de circuitos
-- `/karting/carreras` → Gestión de carreras
-- `/karting/estadisticas` → Estadísticas por piloto
+### 🏀 Baloncesto
+
+- Clasificación de equipos por competición.
+- Lista de partidos y sus resultados.
+- Gráficas de rendimiento por jugador.
+- Detalle de estadísticas individuales.
+
+### 🏁 Karting
+
+- Clasificación de pilotos por puntos acumulados.
+- Lista de carreras y circuitos.
+- Rankings de podios, victorias y vueltas completadas.
+- Comparación visual entre pilotos.
 
 ---
 
-## 🔐 Seguridad (en progreso)
+## 📈 Estadísticas y gráficas
 
-Actualmente el login está implementado en la app de escritorio y móvil. La validación de credenciales contra el backend se está desarrollando con Spring Security.
+- Selector de tipo de gráfica: barras, radar, circular.
+- Interacción táctil para ver detalle de un jugador/piloto.
+- Resumen visual dinámico y filtrado.
 
 ---
 
-## 🛠️ Futuras mejoras
+## 🔐 Login
 
-- Autenticación JWT
-- Control de acceso por roles
-- Soporte para más deportes
+- Pantalla de inicio de sesión funcional (integrada con la API).
+- Se requiere una cuenta válida (registro desde escritorio por ahora).
+
+---
+
+## 🧪 Pruebas
+
+- Pruebas manuales realizadas desde interfaz.
+- Flujo validado: login → selección de módulo → navegación por estadísticas.
+
+---
+
+## 🛠️ En desarrollo
+
+- Mejoras en la experiencia de usuario (UX).
+- Módulo de notificaciones y favoritos.
+- Sistema de perfiles y personalización futura.
 
 ---
 
 ## 👨‍💻 Autor
 
-Desarrollado por **José David Casas Gómez** como parte del sistema de gestión deportiva **FederaPro**.
+Desarrollado por **José David Casas Gómez** como parte del ecosistema multiplataforma **FederaPro**.
 
 ---
 
