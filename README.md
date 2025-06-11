@@ -53,25 +53,8 @@ Cada deporte implementa su propia lógica, entidades y vistas:
 
 ---
 
-### 🖥️ Aplicación de Escritorio (C#)
-
-1. Abre `FederaProDesktop.sln` en Visual Studio.
-2. Verifica la URL de la API en los servicios (`http://localhost:8080`).
-3. Compila y ejecuta la aplicación.
-
----
-
-### 📱 Aplicación Móvil (Android - Kotlin)
-
-1. Abre la carpeta `mobile/` en Android Studio.
-2. Configura un emulador o conecta un dispositivo real.
-3. Ejecuta el proyecto desde `MainActivity`.
-
----
-
 ## 🧪 Pruebas y calidad
 
-- ✔️ Pruebas unitarias en el backend (`/backend/src/test`)
 - ✔️ Validaciones en formularios de escritorio
 - ✔️ Validación de flujo de uso manual en app móvil
 
