@@ -53,23 +53,6 @@ Cada deporte implementa su propia lógica, entidades y vistas:
 
 ---
 
-## ⚙️ Instalación y ejecución
-
-### 🔙 Backend (API REST - Spring Boot)
-
-1. Requisitos: Java 17+, Maven, MySQL/MariaDB
-2. Crea la base de datos y configura `application.properties`
-3. Ejecuta el proyecto:
-
-```bash
-cd backend
-./mvnw spring-boot:run
-```
-
-> La API estará disponible en `http://localhost:8080`
-
----
-
 ### 🖥️ Aplicación de Escritorio (C#)
 
 1. Abre `FederaProDesktop.sln` en Visual Studio.
