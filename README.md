@@ -22,9 +22,9 @@ Actualmente implementa módulos completos para **baloncesto** y **karting**.
 
 ```
 FederaPro/
-├── FederaPro/                  # API REST con Spring Boot
+├── FederaPro/                         # API REST con Spring Boot
 ├── FederaProDesktop/                  # Aplicación Windows Forms en C#
-├── FederaProApp/                   # App Android nativa en Kotlin
+├── FederaProApp/                      # App Android nativa en Kotlin
 ├── Documentación/                     # Documentación técnica del proyecto
 └── README.md                 
 ```
