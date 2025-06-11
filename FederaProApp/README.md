@@ -80,22 +80,6 @@ Desde terminal:
 
 ---
 
-## 🧪 Pruebas
-
-Las pruebas unitarias están ubicadas en:
-
-```
-src/test/java/com/federapro/
-```
-
-Para ejecutarlas:
-
-```bash
-./mvnw test
-```
-
----
-
 ## 📚 Endpoints destacados
 
 ### Baloncesto
@@ -104,6 +88,16 @@ Para ejecutarlas:
 - `/basket/jugadores` → Gestión de jugadores
 - `/basket/partidos` → CRUD de partidos
 - `/basket/estadisticas` → Estadísticas por partido
+
+---
+
+### Karting
+
+- `/api/configuraciones` → Gestión de configuraciones
+- `/api/deportes` → Gestión de deportes
+- `/api/usuarios` → Gestión de Usuarios
+
+---
 
 ### Karting
 
@@ -124,14 +118,13 @@ Actualmente el login está implementado en la app de escritorio y móvil. La val
 
 - Autenticación JWT
 - Control de acceso por roles
-- Documentación Swagger/OpenAPI
 - Soporte para más deportes
 
 ---
 
 ## 👨‍💻 Autor
 
-Desarrollado por **[Tu Nombre]** como parte del sistema de gestión deportiva **FederaPro**.
+Desarrollado por **José David Casas Gómez** como parte del sistema de gestión deportiva **FederaPro**.
 
 ---
 
